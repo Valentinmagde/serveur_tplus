@@ -1,0 +1,40 @@
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+    
+pool:
+  name: 'Default'
+  
+steps:
+  
+  - script: |
+      whoami
+      export COMPOSER_HOME="$HOME/.config/composer"
+      composer install --no-interaction --prefer-dist --no-suggest
+    displayName: 'Installing Package Dependencies'
+
+  - task: CopyFiles@2
+    displayName: 'Staging files for Drop'
+    inputs:
+      SourceFolder: '$(system.defaultWorkingDirectory)'
+      Contents: |
+        **/*
+        !node_modules/**/*
+        !.git/**/*
+        !.gi*
+        !vendor/**/*
+        !.rnd
+        !.env.azure
+        !.end.example
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+# Publish artifacts to drop
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publishing files to Container'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'

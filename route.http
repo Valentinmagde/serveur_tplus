@@ -1,0 +1,45 @@
+GET http://localhost:8080/association/ag/update_date_ag HTTP/1.1
+
+###
+
+GET http://localhost:8080/association/ag/update_date_cloture_ag HTTP/1.1
+
+###
+
+GET http://prod-server.tontine.plus/association/ag/update_date_cloture_ag HTTP/1.1
+
+###
+
+GET http://localhost:8080/association/ag/update_date_echeancier HTTP/1.1
+
+###
+
+GET http://localhost:8080/association/ag/update_etat_echeancier_past HTTP/1.1
+
+###
+
+GET http://prod-server.tontine.plus/association/ag/update_etat_echeancier_past HTTP/1.1
+
+
+###
+
+GET http://localhost:8080/association/ag/update_date_lots_tontine HTTP/1.1
+
+
+###
+
+GET https://prod-server.tontine.plus/association/echeances/delete/acquitement/zero HTTP/1.1
+
+
+###
+
+GET http://localhost:8080/association/credit/echeances/set/to/close HTTP/1.1
+
+###
+
+GET https://prod-server.tontine.plus/association/credit/echeances/set/to/close HTTP/1.1
+
+
+###
+
+GET https://dev-server.tontine.plus/association/set/default/awallet HTTP/1.1

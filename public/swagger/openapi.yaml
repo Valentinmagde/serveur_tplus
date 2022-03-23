@@ -1,0 +1,36 @@
+openapi: 3.0.0
+info:
+  title: 'Tontine Plus'
+  description: 'application de gestion des associations'
+  termsOfService: ''
+  contact:
+    email: support@tontine.plus
+  version: 2.0.0
+paths:
+  '/association/{assocId/activites':
+    get:
+      description: 'récupération de toutes activites d''une association'
+      operationId: 'App\Http\Controllers\ActiviteController::index'
+      responses:
+        default:
+          description: 'Welcome page'
+components:
+  responses:
+    '200':
+      description: 'the request was successfully complete'
+    '201':
+      description: 'a new resources was successfully created'
+    '400':
+      description: 'the request was invalid'
+    '401':
+      description: Unauthenticated
+    '403':
+      description: Forbidden
+    '404':
+      description: 'Not Found'
+    '405':
+      description: 'http method in the request was not suported by the resource'
+    '409':
+      description: 'the request could not be complete due to conflict'
+    '500':
+      description: 'Internal server error'
